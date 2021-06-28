@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700&amp;subset=arabic" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/droidarabickufi.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>index</title>
 
 </head>
@@ -15,11 +14,11 @@
 <body class="text-right py-5" style="direction: rtl">
     <div class="container">
         <div class="d-flex">
-            <a class="btn btn-info m-1" href="">الطلبات</a>
-            <a class="btn btn-outline-info m-1" href="">طلبات قيد المراجعة</a>
-            <a class="btn btn-outline-info m-1" href="">الاقسام</a>
-            <a class="btn btn-outline-info m-1" href="">الطلبات</a>
+            <a class="btn {{ Request::is('admin/documents') ? 'btn-info' : 'btn-outline-info' }} m-1" href="{{route('admin.documents')}}">الطلبات</a>
+            <a class="btn {{ Request::is('admin/departments') ? 'btn-info' : 'btn-outline-info' }} m-1" href="{{route('admin.departments')}}">الاقسام</a>
+            <a class="btn  m-1 {{ Request::is('admin/users') ? 'btn-info' : 'btn-outline-info' }}" href="{{route('admin.users')}}">الاعضاء</a>
         </div>
+        <hr>
         @if(count($errors) > 0)
         <div class="row">
             <div class="col-md-12">
