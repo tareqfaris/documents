@@ -7,7 +7,7 @@ use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 Route::get('form',[MainController::class,'form'])->name('form');
 Route::post('form',[MainController::class,'store']);
