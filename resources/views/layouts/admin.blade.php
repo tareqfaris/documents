@@ -13,8 +13,13 @@
 </head>
 
 <body class="text-right py-5" style="direction: rtl">
-
     <div class="container">
+        <div class="d-flex">
+            <a class="btn btn-info m-1" href="">الطلبات</a>
+            <a class="btn btn-outline-info m-1" href="">طلبات قيد المراجعة</a>
+            <a class="btn btn-outline-info m-1" href="">الاقسام</a>
+            <a class="btn btn-outline-info m-1" href="">الطلبات</a>
+        </div>
         @if(count($errors) > 0)
         <div class="row">
             <div class="col-md-12">
