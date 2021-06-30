@@ -5,16 +5,33 @@
       <div class="col-12">
         <h1 class="my-5 text-center ">عزيزي الطالب يجب عليك ملئ الاستماره لتقديم الطلب</h1>
       </div>
-      <div class="containerr">
+      <div class="container bg-light bordered p-4">
         <form action="{{route('form')}}" method="post">
             @csrf
-          <label for="fname" class="font-weight-bold">الاسم </label>
-          <input type="text"  id="fname" name="name" placeholder="الاسم ..">
+            <div class="form-group">
+              <label for="">عنوان الطلب</label>
+              <input type="text"
+                class="form-control" name="type" id="" aria-describedby="helpId" placeholder="">
+            </div>
+           <div class="form-group">
+             <label for="">الاسم</label>
+             <input type="text"
+               class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+           </div>
 
           <div class="form-group">
             <label for="">رقم الهاتف</label>
             <input type="text"
               class="form-control" name="phone" id="" aria-describedby="helpId" placeholder="رقم الهاتف">
+          </div>
+
+          <div class="form-group">
+            <label for="">القسم / الكلية</label>
+            <select class="form-control" name="department_id" id="">
+                @foreach (\App\Models\Department::get() as $item)
+                     <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
           </div>
 
           <div class="form-group">
@@ -30,30 +47,11 @@
           </div>
 
           <div class="form-group">
-            <label for="">تأريخ الميلاد</label>
-            <input type="date"
-              class="form-control" name="dob" id="" aria-describedby="helpId" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="">اسم المدرسة</label>
-            <input type="text"
-              class="form-control" name="school_name" id="" aria-describedby="helpId" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="">سنة التخرج</label>
-            <input type="text"
-              class="form-control" name="school_year" id="" aria-describedby="helpId" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="">نوع الدراسة</label>
-            <input type="text"
-              class="form-control" name="school_type" id="" aria-describedby="helpId" placeholder="">
+            <label for="">تفاصيل الطلب</label>
+            <textarea class="form-control" name="content" id="" rows="5"></textarea>
           </div>
   
-          <input type="submit" class="font-weight-bold" value="ارسال الطلب">
+          <input type="submit" class="font-weight-bold btn btn-success" value="ارسال الطلب">
         </form>
       </div>
     </div>

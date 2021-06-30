@@ -11,4 +11,6 @@ class AdminController extends Controller
        $documents=Document::paginate(25);
         return view('admin.documents',compact('documents'));
    }
+
+   public function 
 }

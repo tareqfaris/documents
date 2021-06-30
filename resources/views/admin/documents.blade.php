@@ -29,6 +29,7 @@
                 <span>قيد المراجعة</span>
             </td>
             <td class="d-flex justify-content-center">
+                <a href="{{route('document.show',$item->id)}}" class="btn btn-warning btn-sm m-1">عرض الطلب</a>
                 <a href="{{route('admin.departments.edit',$item->id)}}" class="btn btn-info btn-sm m-1">تعديل</a>
                 <form action="{{route('admin.departments.delete',$item->id)}}" id="del-{{$item->id}}" method="post">
                   @csrf

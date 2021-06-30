@@ -6,16 +6,19 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\UsersController;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::middleware(['auth'])->group(function () {
+Route::get('/', function () {return view('welcome');});
+Route::post('form',[MainController::class,'store'])->name('form');
+Route::get('documents',[MainController::class,'documents'])->name('myDocuments');
+Route::get('documents/{document}',[MainController::class,'show'])->name('document.show');
+Route::prefix('forms')->group(function () {
+    Route::get('other',[MainController::class,'other'])->name('other');
+    Route::get('document',[MainController::class,'document'])->name('document');
+    Route::get('endorsement',[MainController::class,'endorsement'])->name('endorsement');
 });
-Route::get('form',[MainController::class,'form'])->name('form');
-Route::post('form',[MainController::class,'store']);
-
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('documents',[AdminController::class,'documents'])->name('admin.documents');
-
-
     Route::get('departments',[DepartmentsController::class,'index'])->name('admin.departments');
     Route::get('departments/create',[DepartmentsController::class,'create'])->name('admin.departments.create');
     Route::post('departments',[DepartmentsController::class,'store'])->name('admin.departments.store');
@@ -31,6 +34,8 @@ Route::prefix('admin')->group(function () {
         Route::put('{department}',[UsersController::class,'update'])->name('admin.users.update');
         Route::delete('{department}',[UsersController::class,'destroy'])->name('admin.users.delete');
     });
+});
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
