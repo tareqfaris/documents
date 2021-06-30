@@ -12,5 +12,7 @@ class AdminController extends Controller
         return view('admin.documents',compact('documents'));
    }
 
-   public function 
+   public function action(){
+      
+   }
 }
