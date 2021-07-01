@@ -41,7 +41,8 @@ class CreateDocumentsTable extends Migration
             $table->integer('department_id')->nullable()->default(0);
             $table->string('code')->nullable();
             $table->text('content')->nullable();
-            $table->integer('type')->default(0)->nullable();
+            $table->integer('status')->default(0)->nullable();
+            $table->string('title')->default('بدون عنوان')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

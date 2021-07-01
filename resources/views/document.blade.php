@@ -3,7 +3,7 @@
    <div class="bordered card p-4">
        <div class="d-flex justify-content-between">
            <div>
-            <?=\DNS2D::getBarcodeHTML($document->id, 'QRCODE',4,4);?>
+            <?=@\DNS2D::getBarcodeHTML($document->id, 'QRCODE',4,4);?>
            </div>
            <div class="text-center">
                <p>جمهورية العراق / وزارة التعليم العالي والبحث العلمي</p>
@@ -43,5 +43,31 @@
                 <h6>توقع العميد</h6>
             </div>
        </div>
+   </div>
+   <div class="card bordered m-2 p-2 shadow">
+       مرفقات 
+       <table class="table table-hover table-bordered text-center">
+           <thead>
+               <tr>
+                   <th>#</th>
+                   <th>الملف</th>
+                   <th>تأريخ الاضافة</th>
+                   <th>تحميل</th>
+               </tr>
+           </thead>
+           <tbody>
+            @foreach ($document->attachments as $item)
+            <tr>
+                <td scope="row">{{$item->id}}</td>
+                <td style="direction:ltr">{{$item->filename}}</td>
+                <td>{{$item->created_at->format('Y-m-d')}}</td>
+                <td><a class="btn btn-primary btn-sm" href="{{route('download',$item->id)}}">تحميل </a></td>
+            </tr>
+          @endforeach
+           
+ 
+           </tbody>
+       </table>
+ 
    </div>
 @endsection

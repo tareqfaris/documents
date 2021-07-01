@@ -11,7 +11,7 @@
             <div class="form-group">
               <label for="">عنوان الطلب</label>
               <input type="text"
-                class="form-control" name="type" disabled  value="طلب وثيقة">
+                class="form-control" name="title"   value="طلب وثيقة">
             </div>
            <div class="form-group">
              <label for="">الاسم</label>
@@ -43,9 +43,8 @@
            <div class="form-group">
              <label for="">نوع الدراسة</label>
              <select class="form-control" name="school_type" id="">
-               <option></option>
-               <option></option>
-               <option></option>
+               <option>صباحي</option>
+               <option>مسائي</option>
              </select>
            </div>
 

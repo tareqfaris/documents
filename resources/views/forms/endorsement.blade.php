@@ -11,7 +11,7 @@
             <div class="form-group">
               <label for="">عنوان الطلب</label>
               <input type="text"
-                class="form-control" name="type" disabled  value="طلب تأييد تخرج">
+                class="form-control" name="title"   value="طلب تأييد تخرج">
             </div>
            <div class="form-group">
              <label for="">الاسم</label>
@@ -40,14 +40,13 @@
               class="form-control" name="school_year" id="" aria-describedby="helpId" placeholder="">
           </div>
 
-           <div class="form-group">
-             <label for="">نوع الدراسة</label>
-             <select class="form-control" name="school_type" id="">
-               <option></option>
-               <option></option>
-               <option></option>
-             </select>
-           </div>
+          <div class="form-group">
+            <label for="">نوع الدراسة</label>
+            <select class="form-control" name="school_type" id="">
+              <option>صباحي</option>
+              <option>مسائي</option>
+            </select>
+          </div>
 
           
 
